@@ -1,4 +1,14 @@
-# Reproductiblity using Rocker
+# Reproductiblity from GitHub
+
+Add your code to GitHub and have others clone and run your code.  Since you don't know the computational environment that other are using you have to be careful about R versioning and package dependencies.  For straightforward analyses that use common R packages that maintain backward compatibility, then putting your code on GitHub is a solid foundation for reproduciblity.  
+
+You would then archive your GitHub repo on Zenodo so that it persists
+
+#Reproductiblity from GitHub + renv
+
+Renv is a package manager for R (https://rstudio.github.io/renv/articles/renv.html) that controls for the version of R code.  I have yet to have a project that didn't involve me throwing a can, bottle, or otherwise at my computer screen because an renv.lock file gets cross wired.  Renv is awesome in principle but not in practice.
+
+# Reproductiblity using Rocker + GitHub
 
 Why start from Docker? Starting from a Docker container is the closest thing you can do to starting from a fresh computer that isn't filled with all the packages and data sets that you already have on your computer.  A fresh computer forces you to be explicit about package installs, etc. and will make it easier for others to successfully reproduce your analysis.
 
@@ -24,9 +34,9 @@ Why start from Docker? Starting from a Docker container is the closest thing you
 
 10. Go to your fork on GitHub.com and select "Contribute".  Open a PR.  In the discussion of the PR, describe the key fixes that you to addressed.
 
-# Reproductiblity using Rocker
+# Reproductiblity using Docker + GitHub
 
-In the above example, you start from the rstudio rocker and then install packages on top of it. To be more explicit about the users environment, you can provide your own docker container
+In the above example, you start from the rstudio rocker and then install packages on top of it. To be more explicit about the users environment, you can provide your own docker container.  You would do this if you have a particular Rocker version that you want to start with or you are worried about packages changing.
 
 1. Update the Dockerfile to match your repo
 
@@ -35,7 +45,7 @@ In the above example, you start from the rstudio rocker and then install package
 3. At the terminal navigate to your github repo on your computer.  Then run the following code to create, tag, and push your Docker container
 
 ```
-docker build https://github.com/rqthomas/repoducibility-demo.git#main -t thomas_demo
+docker build https://github.com/rqthomas/reproducibility-demo.git#main -t thomas_demo#main -t thomas_demo
 docker image tag thomas_demo rqthomas/thomas_demo:latest
 docker image push rqthomas/thomas_demo:latest 
 ```
