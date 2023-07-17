@@ -1,8 +1,8 @@
 # Reproductiblity from GitHub
 
-Add your code to GitHub and have others clone and run your code.  Since you don't know the computational environment that other are using you have to be careful about R versioning and package dependencies.  For straightforward analyses that use common R packages that maintain backward compatibility, then putting your code on GitHub is a solid foundation for reproduciblity.  
+Add your code to GitHub and have others clone and run your code.  Since you don't know the computational environment that other are using you have to be careful about R versioning and package dependencies.  For straightforward analyses that use common R packages that maintain backward compatibility, then putting your code on GitHub is a solid foundation for reproducibility.  
 
-You would then archive your GitHub repo on Zenodo so that it persists
+You would then archive your GitHub repo on Zenodo (https://zenodo.org) so that it persists.  Here is information about linking your GitHub repo to Zenodo and then creating a release of your code that gets automatically upload to Zenodo.  You then got into Zenodo to update the metadata.  See more here: https://coderefinery.github.io/github-without-command-line/doi/
 
 # Reproductiblity from GitHub + renv
 
@@ -38,7 +38,7 @@ Why start from Docker? Starting from a Docker container is the closest thing you
 
 In the above example, you start from the rstudio rocker and then install packages on top of it. To be more explicit about the users environment, you can provide your own docker container.  You would do this if you have a particular Rocker version that you want to start with or you are worried about packages changing.
 
-1. Update the Dockerfile to match your repo
+1. Update the Dockerfile in this repo to match your repo
 
 2. Create user account on hub.docker.com
 
