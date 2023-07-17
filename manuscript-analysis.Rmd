@@ -1,0 +1,63 @@
+---
+title: "Manuscript Analysis"
+author: "Quinn Thomas"
+date: "2023-07-17"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Load data
+
+Read in data.  This assumes that you have already downloaded from Zenodo using `download-data.R`
+
+The data are from Olsson et al. In Prep.
+
+```{r}
+df <- arrow::open_dataset("/Users/quinn/Downloads/reproducibility-demo/scores/ler_ms/reruns") |>
+  dplyr::filter(model_id == "GLM",
+                variable == "temperature",
+                depth %in% c(0,1, 1.5, 3,4, 5, 6, 7, 8, 9)) |>
+  dplyr::collect()
+```
+
+# Figure 1 
+
+```{r}
+p1 <- df |> 
+  dplyr::group_by(depth, horizon) |> 
+  dplyr::summarise(crps = mean(crps, na.rm = TRUE)) |> 
+  ggplot(aes(x = horizon, y = crps, color = factor(depth))) +
+  geom_line()
+
+p1
+```
+Save plot
+
+```{r}
+dir.create("figures", showWarnings = FALSE)
+ggsave("figure1.png", plot = p, width = 3, height = 4)
+```
+# Table 1
+
+```{r}
+
+df |> 
+  dplyr::group_by(depth) |> 
+  dplyr::summarise(crps = mean(crps, na.rm = TRUE)) |> 
+  knitr::kable()
+```
+# Numbers in text
+
+The mean crps was
+
+```{r}
+df |> dplyr::summarize(mean = mean(crps, na.rm = TRUE))
+```
+
+# SI materials
+
+Add SI here
+
