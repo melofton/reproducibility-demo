@@ -11,8 +11,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #Load data
 
-Read in data.  This assumes that you have already downloaded from Zenodo using `download-data.R`
+Read in data.  This assumes that you have already downloaded from Zenodo using `download-data.R`.  Learn more about Zenodo here: https://zenodo.org
 
+If you are using a csv file on EDI you can also skip the download and read directly from EDI. e.g.
+
+```
+df <- read_csv("https://pasta.lternet.edu/package/data/eml/edi/551/7/38d72673295864956cccd6bbba99a1a3")
+```
 The data are from Olsson et al. In Prep.
 
 ```{r}
@@ -43,7 +48,6 @@ ggsave("figure1.png", plot = p, width = 3, height = 4)
 # Table 1
 
 ```{r}
-
 df |> 
   dplyr::group_by(depth) |> 
   dplyr::summarise(crps = mean(crps, na.rm = TRUE)) |> 
