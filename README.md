@@ -4,7 +4,7 @@ Add your code to GitHub and have others clone and run your code.  Since you don'
 
 You would then archive your GitHub repo on Zenodo so that it persists
 
-#Reproductiblity from GitHub + renv
+# Reproductiblity from GitHub + renv
 
 Renv is a package manager for R (https://rstudio.github.io/renv/articles/renv.html) that controls for the version of R code.  I have yet to have a project that didn't involve me throwing a can, bottle, or otherwise at my computer screen because an renv.lock file gets cross wired.  Renv is awesome in principle but not in practice.
 
