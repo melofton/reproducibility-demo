@@ -18,7 +18,7 @@ Add your code to GitHub and have others clone and run your code. Since you don't
 
 You would then archive your GitHub repo on Zenodo (<https://zenodo.org>) so that it persists. Here is information about linking your GitHub repo to Zenodo and then creating a release of your code that gets automatically upload to Zenodo. You then got into Zenodo to update the metadata. See more here: <https://coderefinery.github.io/github-without-command-line/doi/>
 
-# Exit 2: Reproducibility from GitHub + renv
+## Exit 2: Reproducibility from GitHub + renv
 
 Renv is a package manager for R (<https://rstudio.github.io/renv/articles/renv.html>) that controls for the version of R packages. I have yet to have a project that didn't involve me throwing a can, bottle, or other nearby object at my computer screen because an `renv.lock` file gets cross wired. Renv is awesome in principle but not in practice.
 
@@ -38,23 +38,9 @@ A Rocker is a Docker container with R (potentially also with Rstudio and other R
 
 5.  Point your browser to `localhost:8787`. Log in with user = rstudio, passwoard = yourpassword.
 
-### Performing a code review
+6.  In prep for your code review, set up your GitHub profile on the container following: <https://github.com/frec-3044/git-rmd-intro-template/blob/main/assignment/instructions.md>
 
-1.  On GitHub.com, create a fork of the following GitHub repo into your GitHub organization: <https://github.com/rqthomas/reproducibility-demo>
-
-2.  Start a new project in the rocker container in #4.
-
-3.  Try to reproduce the analysis in `manuscript-analysis.Rmd`
-
-4.  If you find any issues that you can fix, fix them in the code.
-
-5.  Set up your GitHub profile on the Rocker container following: <https://github.com/frec-3044/git-rmd-intro-template/blob/main/assignment/instructions.md>
-
-6.  Commit and Push the updates to your fork
-
-7.  Go to your fork on GitHub.com and select "Contribute". Open a PR. In the discussion of the PR, describe the key fixes that you to addressed.
-
-# Exit 4: Reproductiblity using Docker + GitHub
+## Exit 4: Reproductiblity using Docker + GitHub
 
 In the above example, you start from the rstudio rocker and then install packages on top of it. To be more explicit about the users environment, you can provide your own docker container. You would do this if you have a particular Rocker version that you want to start with or you are worried about packages changing.
 
@@ -70,8 +56,31 @@ docker image tag thomas_demo rqthomas/thomas_demo:latest
 docker image push rqthomas/thomas_demo:latest 
 ```
 
-Then you can run the following like in the Rocker example, except that you will be able to use your container with the extra packages in install.R
+Someone performing a code review or reproducing your analysis will follow the steps in Exit 3, except for changing the docker "image" that is used from "rocker/rstudio" to the custom image ("rqthomas/thomas_demo" in the example) 
 
 ```         
 docker run --rm -ti -e PASSWORD=yourpassword -p 8787:8787 thomas_demo:latest
 ```
+
+5.  Point your browser to `localhost:8787`. Log in with user = rstudio, passwoard = yourpassword.
+
+6.  In prep for your code review, set up your GitHub profile on the container following: <https://github.com/frec-3044/git-rmd-intro-template/blob/main/assignment/instructions.md>
+
+# Performing a code review
+
+1.  On GitHub.com, create a fork of the following GitHub repo into your GitHub organization: <https://github.com/rqthomas/reproducibility-demo>
+
+2.  Start a new project in the on your computer (Exit 1) or rocker container (Exits 3 & 4) from your forked GitHub repo. (new project -\> Version Control -\> Git)
+
+3.  The following checklist is a list of things to review in the code:
+
+-   Does the GitHub repo have a Readme?
+-   Does the Readme tell you how to run the analysis?
+-   Can you run the analysis successfully?
+-   ...
+
+5.  If you find any issues that you can fix, fix them in the code
+
+6.  Commit and Push the updates to your fork
+
+7.  Go to your fork on GitHub.com and select "Contribute". Open a PR. In the discussion of the PR, describe the key fixes that you to addressed.
