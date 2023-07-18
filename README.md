@@ -14,7 +14,9 @@ The following are steps on the reproducibility highway. You do not need to drive
 
 ## Exit 1: Reproductiblity from GitHub
 
-Add your code to GitHub and have others clone and run your code. Since you don't know the computational environment that other are using you have to be careful about R versioning and package dependencies. For straightforward analyses that use common R packages that maintain backward compatibility, then putting your code on GitHub is a solid foundation for reproducibility.
+Add your code to GitHub and have others clone and run your code. Since you don't know the computational environment that other are using you have to be careful about R versioning and package dependencies. For straightforward analyses that use common R packages that maintain backward compatibility, then putting your code on GitHub is a solid foundation for reproducibility.  
+
+It is best if you make your GitHub repo an R project so that Rstudio understand relative pathing better.
 
 You would then archive your GitHub repo on Zenodo (<https://zenodo.org>) so that it persists. Here is information about linking your GitHub repo to Zenodo and then creating a release of your code that gets automatically upload to Zenodo. You then got into Zenodo to update the metadata. See more here: <https://coderefinery.github.io/github-without-command-line/doi/>
 
@@ -38,7 +40,9 @@ A Rocker is a Docker container with R (potentially also with Rstudio and other R
 
 5.  Point your browser to `localhost:8787`. Log in with user = rstudio, passwoard = yourpassword.
 
-6.  In prep for your code review, set up your GitHub profile on the container following: <https://github.com/frec-3044/git-rmd-intro-template/blob/main/assignment/instructions.md>
+6. Start a new project in your rocker container (Exits 3 & 4) from your forked GitHub repo. (new project -\> Version Control -\> Git)
+
+7. Test your code
 
 ## Exit 4: Reproductiblity using Docker + GitHub
 
@@ -64,11 +68,13 @@ docker run --rm -ti -e PASSWORD=yourpassword -p 8787:8787 thomas_demo:latest
 
 5.  Point your browser to `localhost:8787`. Log in with user = rstudio, passwoard = yourpassword.
 
-6.  In prep for your code review, set up your GitHub profile on the container following: <https://github.com/frec-3044/git-rmd-intro-template/blob/main/assignment/instructions.md>
+6. Start a new project in your rocker container (Exits 3 & 4) from your forked GitHub repo. (new project -\> Version Control -\> Git)
+
+7. Test your code
 
 # Performing a code review
 
-1.  On GitHub.com, create a fork of the following GitHub repo into your GitHub organization: <https://github.com/rqthomas/reproducibility-demo>
+1.  On GitHub.com, create a fork of the repo that you will review into your GitHub organization.  For this example the GitHub is this one:  <https://github.com/rqthomas/reproducibility-demo>.  Find the fork button, click it, and then select your GitHub organization.
 
 2.  Start a new project in the on your computer (Exit 1) or rocker container (Exits 3 & 4) from your forked GitHub repo. (new project -\> Version Control -\> Git)
 
@@ -81,6 +87,6 @@ docker run --rm -ti -e PASSWORD=yourpassword -p 8787:8787 thomas_demo:latest
 
 5.  If you find any issues that you can fix, fix them in the code
 
-6.  Commit and Push the updates to your fork
+6.  Commit and Push the updates to your fork.  If you are using a Docker container you will need to set up your GitHub credentials on the container following: <https://github.com/frec-3044/git-rmd-intro-template/blob/main/assignment/instructions.md>
 
 7.  Go to your fork on GitHub.com and select "Contribute". Open a PR. In the discussion of the PR, describe the key fixes that you to addressed.
