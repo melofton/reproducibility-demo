@@ -82,8 +82,15 @@ docker run --rm -ti -e PASSWORD=yourpassword -p 8787:8787 thomas_demo:latest
 
 -   Does the GitHub repo have a Readme?
 -   Does the Readme tell you how to run the analysis?
--   Can you run the analysis successfully?
--   ...
+-   Can you run the analysis successfully out-of-the-box?
+-   Does the repo have an install.R script that includes all the necessary packages beyond the recommended Rocker container?
+-   Is there a clear step for downloading data that works?
+-   Are custom function in an R subdirectory?
+-   Is there extra code that isn't used in the analysis
+-   Is there a ton of commented out code in the analysis script that others will be looking at?
+-   Does the Readme list the authors and manuscript title?
+-   Is there repeated code that should be in functions?
+-   Are single use function in R subdirectory that would be better in the main analysis script for improving read ability?
 
 5.  If you find any issues that you can fix, fix them in the code
 
