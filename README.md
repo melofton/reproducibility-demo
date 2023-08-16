@@ -97,3 +97,23 @@ docker run --rm -ti -e PASSWORD=yourpassword -p 8787:8787 thomas_demo:latest
 6.  Commit and Push the updates to your fork.  If you are using a Docker container you will need to set up your GitHub credentials on the container following: <https://github.com/frec-3044/git-rmd-intro-template/blob/main/assignment/instructions.md>
 
 7.  Go to your fork on GitHub.com and select "Contribute". Open a PR. In the discussion of the PR, describe the key fixes that you to addressed.
+
+# Guidelines when requesting a code review from a collaborator
+
+Consider that requesting a collaborator to review your code is similar to asking that person to review a manuscript. As a result, similar to when you are drafting a manuscript, it's best practice to make sure your code is well-organized, concise, and generally interpretable by someone else before you ask for a review. Below are provided a few guidelines to consider when requesting a code review from a collaborator.
+
+1. **Clarify your review objectives when you request a review.** Is your primary objective merely to ensure that the code runs with no errors? Or are there sections of it that you would like the reviewer to screen more carefully, such as a particular analysis that you want to make sure is free of mistakes? Again, similar to when you request a manuscript review, giving the reviewer some guidance about the type of feedback you are seeking can both make the reviewer's life simpler and help you accomplish your goals.
+
+2. **Ensure your code repository is well-organized.** Is it clear to the reviewer where to begin, and which scripts need to be run in what order? Is there an informative README.md? Are scripts well-annotated so the reviewer can quickly navigate the code and follow along?
+
+3. **Omit needless code.** Similar to how you generate an initial draft of text and then revisit and revise it to improve the wording, consider that revising your code to make sure it is concise and efficient can make a reviewer's life much easier. I doubt any of us want to read 1000 lines of code if the same tasks can be executed in 100 lines! While we are ecologists first, not programmers, a little code etiquette can really help a reviewer (and you later on!). If you have code that isn't currently needed but that you aren't ready to part with, consider storing it in an archive folder that can be ignored by the reviewer.
+
+4. **Consider using functions for repeated tasks.** The benefits to this approach are many! To name a few: 1) once you get beyond a few hundred lines of code in a script, writing functions makes it easier to navigate your code, as you can "follow the trail" of functions back to the line of code you are looking for rather than scrolling through thousands of lines of code; 2) following on (1), it makes code easier to troubleshoot, as you can pin down which function is misbehaving; 3) it helps avoid errors due to repeated copying and pasting of code. If you find that you are repeatedly copying and pasting very similar code with just a few modifications (e.g., only changing the year of the dataset, the study site, the study organism, the value of the model parameter, etc.), think about writing a function that takes the thing(s) you need to change (year, site, etc.) as arguments.
+
+5. **Scan your code for 'readability'.** Just as a page of densely formatted text in 10 pt font with no paragraph breaks can be a little intimidating to tackle, code that is written with little spacing or extremely long lines running off the page can be difficult to read. Have a heart for your reviewer's eyes (and your own!).
+
+Additional resources (please add to this list!):
+
+https://www.browserstack.com/guide/coding-standards-best-practices
+https://www.michaelagreiler.com/code-review-best-practices/
+
