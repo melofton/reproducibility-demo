@@ -24,7 +24,7 @@ You would then archive your GitHub repo on Zenodo (<https://zenodo.org>) so that
 
 Renv is a package manager for R (<https://rstudio.github.io/renv/articles/renv.html>) that controls for the version of R packages. I have yet to have a project that didn't involve me throwing a can, bottle, or other nearby object at my computer screen because an `renv.lock` file gets cross wired. Renv is awesome in principle but not in practice.
 
-# Exit 3: Reproducibility using Rocker + GitHub
+## Exit 3: Reproducibility using Rocker + GitHub
 
 Starting from a Docker container is the closest thing you can do to starting from a fresh computer that isn't filled with all the packages and data sets that you already have on your computer. A fresh computer forces you to be explicit about package installs, etc. and will make it easier for others to successfully reproduce your analysis.
 
